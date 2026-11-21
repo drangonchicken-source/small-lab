@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>엑셀 숫자 텍스트 변환, 코드 열은 바꾸면 안 되는 이유 | 작은 실험실 자료실</title><meta name="description" content="0012, 012, 12는 글자로는 서로 다른 코드 3개인데 숫자로 바꾸면 모두 12 하나가 된다. 수량 열만 숫자로 바꾸고 코드 열은 글자로 둔다."><link rel="canonical" href="https://drangonchicken-source.github.io/lab/convert-collides-codes/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="작은 실험실 자료실"><meta property="og:title" content="엑셀 숫자 텍스트 변환, 코드 열은 바꾸면 안 되는 이유 | 작은 실험실 자료실"><meta property="og:description" content="0012, 012, 12는 글자로는 서로 다른 코드 3개인데 숫자로 바꾸면 모두 12 하나가 된다. 수량 열만 숫자로 바꾸고 코드 열은 글자로 둔다."><meta property="og:locale" content="ko_KR"><meta property="og:url" content="https://drangonchicken-source.github.io/lab/convert-collides-codes/"><link rel="alternate" type="application/rss+xml" title="작은 실험실 자료실" href="https://drangonchicken-source.github.io/rss.xml"><meta name="naver-site-verification" content="a370f3a9ac0121efd31bfaed6ae2c8dc6bd68ec9"><meta name="google-site-verification" content="O4NB9yrIbJf-QfbxmnIvXyK7Dsu9oYo5aYu5wfEeSnY"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "엑셀 숫자 텍스트 변환, 코드 열은 바꾸면 안 되는 이유", "inLanguage": "ko", "description": "0012, 012, 12는 글자로는 서로 다른 코드 3개인데 숫자로 바꾸면 모두 12 하나가 된다. 수량 열만 숫자로 바꾸고 코드 열은 글자로 둔다.", "author": {"@type": "Organization", "name": "작은 실험실"}, "publisher": {"@type": "Organization", "name": "작은 실험실"}, "about": ["엑셀", "숫자", "텍스트", "변환", "코드"], "mainEntityOfPage": "https://drangonchicken-source.github.io/lab/convert-collides-codes/"}</script><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7;color:#1c2330;background:#f6f7f9}
+a{color:#1f4fd8}header,main,footer{max-width:780px;margin:0 auto;padding:20px}header a{text-decoration:none;color:#1c2330;font-weight:700;font-size:20px}
+header p{margin:4px 0 0;color:#5b6577;font-size:14px}article,section.card{background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:24px;margin-bottom:18px}
+h1{font-size:26px;line-height:1.35;margin:0 0 12px}h2{font-size:19px;margin:28px 0 8px}pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:8px;overflow-x:auto;font-size:14px;white-space:pre-wrap;word-break:break-all}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid #e3e6ec;padding:10px;text-align:left;vertical-align:top;font-size:15px}th{background:#f0f3f8;width:32%}
+.note{color:#5b6577;font-size:14px}.ad{margin:22px auto;text-align:center;min-height:1px}.ad small{display:block;color:#8a93a3;font-size:12px;margin-bottom:4px}
+ul.list{list-style:none;padding:0;margin:0}ul.list li{padding:14px 0;border-bottom:1px solid #eef0f4}ul.list li:last-child{border:0}ul.list a{font-weight:600;text-decoration:none}
+footer{color:#5b6577;font-size:13px}@media(max-width:780px){h1{font-size:22px}}</style></head>
+<body><header><a href="https://drangonchicken-source.github.io/">작은 실험실 자료실</a><p>직접 실행한 데이터 실험의 입력과 결과를 그대로 공개합니다.</p></header>
+<main><article><h1>엑셀 숫자 텍스트 변환, 코드 열은 바꾸면 안 되는 이유</h1>
+<p class="note">직접 실행한 가상 자료 실험 기록 · 식별자 convert-collides-codes</p><h2>어떤 문제인가</h2><p>텍스트를 숫자로 바꿨더니 서로 다른 코드가 같아졌다.</p>
+<h2>입력 자료</h2><pre>[
+ &quot;0012&quot;,
+ &quot;012&quot;,
+ &quot;12&quot;
+]</pre>
+<h2>실행 결과</h2><table><tr><th>확인 없이 처리한 결과</th><td><pre>1</pre></td></tr><tr><th>확인하고 처리한 결과</th><td><pre>3</pre></td></tr></table>
+<div class="ad "><small>광고</small><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-wlz2PPROb7xRkgr7" data-ad-width="300" data-ad-height="250"></ins></div>
+<h2>결론</h2><p>0012, 012, 12는 글자로는 서로 다른 코드 3개인데 숫자로 바꾸면 모두 12 하나가 된다. 수량 열만 숫자로 바꾸고 코드 열은 글자로 둔다.</p>
+<h2>실행 방법</h2><p>Python 표준 라이브러리로 두 처리 방법을 직접 실행하고 예상값과 대조</p>
+<h2>이 실험의 한계</h2><p>가상 자료를 Python 표준 기능으로 실행한 결과입니다. Excel 등 특정 프로그램의 동작과 실제 AI 오류율은 측정하지 않았습니다.</p><h2>더 읽을 자료</h2><ul><li><a href="https://support.microsoft.com/ko-kr/excel/convert-numbers-stored-as-text-to-numbers-in-excel" rel="noopener">Microsoft 지원: Excel에서 텍스트로 저장된 숫자를 숫자로 변환</a></li></ul><h2>비슷한 실험</h2><ul><li><a href="../ai-table-rowdrop/">챗gpt 엑셀 활용 전에 행 수부터 세어 두세요</a></li><li><a href="../ai-table-swap/">챗gpt 엑셀 표 정리, 합계만 맞추면 놓치는 것</a></li><li><a href="../csv-encoding-mismatch/">엑셀 csv 깨짐, 파일은 멀쩡하고 읽는 방식이 다른 경우</a></li><li><a href="../dedupe-loses-amount/">엑셀 중복값 제거 전에 합계부터 적어 두세요</a></li></ul></article><div class="ad "><small>광고</small><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-O2gu8S2UiwTLR9wb" data-ad-width="250" data-ad-height="250"></ins></div></main>
+<footer><p>작은 실험실 자료실 · 모든 실험은 직접 만든 가상 자료로 실행했습니다. 실제 고객 자료, 특정 앱의 동작, AI 오류율을 측정한 것이 아닙니다.</p>
+<p><a href="https://drangonchicken-source.github.io/about/">소개와 광고 안내</a></p></footer><script type="text/javascript" src="https://t1.kakaocdn.net/kas/static/ba.min.js" async></script></body></html>
