@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drangonchicken-source.github.io/small-lab/sitemap.xml
