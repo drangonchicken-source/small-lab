@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>참과 거짓이 숫자 검사에 통과하는 경우 | 작은 실험실 자료실</title><meta name="description" content="Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다."><link rel="canonical" href="https://drangonchicken-source.github.io/lab/boolean-number/">
-<meta property="og:type" content="article"><meta property="og:site_name" content="작은 실험실 자료실"><meta property="og:title" content="참과 거짓이 숫자 검사에 통과하는 경우 | 작은 실험실 자료실"><meta property="og:description" content="Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다."><meta property="og:locale" content="ko_KR"><meta property="og:url" content="https://drangonchicken-source.github.io/lab/boolean-number/"><link rel="alternate" type="application/rss+xml" title="작은 실험실 자료실" href="https://drangonchicken-source.github.io/rss.xml"><meta name="naver-site-verification" content="a370f3a9ac0121efd31bfaed6ae2c8dc6bd68ec9"><meta name="google-site-verification" content="O4NB9yrIbJf-QfbxmnIvXyK7Dsu9oYo5aYu5wfEeSnY"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "참과 거짓이 숫자 검사에 통과하는 경우", "inLanguage": "ko", "description": "Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다.", "author": {"@type": "Organization", "name": "작은 실험실"}, "publisher": {"@type": "Organization", "name": "작은 실험실"}, "about": ["자동화", "데이터"], "mainEntityOfPage": "https://drangonchicken-source.github.io/lab/boolean-number/"}</script><style>*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.7;color:#1c2330;background:#f6f7f9}
-a{color:#1f4fd8}header,main,footer{max-width:780px;margin:0 auto;padding:20px}header a{text-decoration:none;color:#1c2330;font-weight:700;font-size:20px}
-header p{margin:4px 0 0;color:#5b6577;font-size:14px}article,section.card{background:#fff;border:1px solid #e3e6ec;border-radius:10px;padding:24px;margin-bottom:18px}
-h1{font-size:26px;line-height:1.35;margin:0 0 12px}h2{font-size:19px;margin:28px 0 8px}pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:8px;overflow-x:auto;font-size:14px;white-space:pre-wrap;word-break:break-all}
-table{border-collapse:collapse;width:100%}th,td{border:1px solid #e3e6ec;padding:10px;text-align:left;vertical-align:top;font-size:15px}th{background:#f0f3f8;width:32%}
-.note{color:#5b6577;font-size:14px}.ad{margin:22px auto;text-align:center;min-height:1px}.ad small{display:block;color:#8a93a3;font-size:12px;margin-bottom:4px}
-ul.list{list-style:none;padding:0;margin:0}ul.list li{padding:14px 0;border-bottom:1px solid #eef0f4}ul.list li:last-child{border:0}ul.list a{font-weight:600;text-decoration:none}
-footer{color:#5b6577;font-size:13px}@media(max-width:780px){h1{font-size:22px}}</style></head>
-<body><header><a href="https://drangonchicken-source.github.io/">작은 실험실 자료실</a><p>직접 실행한 데이터 실험의 입력과 결과를 그대로 공개합니다.</p></header>
-<main><article><h1>참과 거짓이 숫자 검사에 통과하는 경우</h1>
-<p class="note">직접 실행한 가상 자료 실험 기록 · 식별자 boolean-number</p>
-<h2>입력 자료</h2><pre>true</pre>
-<h2>실행 결과</h2><table><tr><th>확인 없이 처리한 결과</th><td><pre>true</pre></td></tr><tr><th>확인하고 처리한 결과</th><td><pre>false</pre></td></tr></table>
+<meta property="og:type" content="article"><meta property="og:site_name" content="작은 실험실 자료실"><meta property="og:title" content="참과 거짓이 숫자 검사에 통과하는 경우 | 작은 실험실 자료실"><meta property="og:description" content="Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다."><meta property="og:locale" content="ko_KR"><meta property="og:url" content="https://drangonchicken-source.github.io/lab/boolean-number/"><link rel="alternate" type="application/rss+xml" title="작은 실험실 자료실" href="https://drangonchicken-source.github.io/rss.xml"><meta name="naver-site-verification" content="a370f3a9ac0121efd31bfaed6ae2c8dc6bd68ec9"><meta name="google-site-verification" content="O4NB9yrIbJf-QfbxmnIvXyK7Dsu9oYo5aYu5wfEeSnY"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "참과 거짓이 숫자 검사에 통과하는 경우", "inLanguage": "ko", "description": "Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다.", "author": {"@type": "Organization", "name": "작은 실험실"}, "publisher": {"@type": "Organization", "name": "작은 실험실"}, "about": ["자동화", "데이터"], "mainEntityOfPage": "https://drangonchicken-source.github.io/lab/boolean-number/"}</script><style>
+:root{--brand:#2b1657;--brand2:#4a2a8c;--lav:#b9a3f0;--cube:#f08a4b;--ink:#1d1a2b;--sub:#5f5a73;--line:#e7e3f1;--bg:#f7f5fc;--card:#fff;--bad:#c2563a;--bad-bg:#fdf0eb;--good:#2f7a55;--good-bg:#ecf7f1;--code:#17122b}
+@media(prefers-color-scheme:dark){:root{--ink:#ece9f6;--sub:#a9a3bf;--line:#2e2944;--bg:#120f1f;--card:#1a1630;--bad-bg:#33201b;--good-bg:#17291f;--bad:#f0997c;--good:#7fd0a6;--code:#0b0817}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",sans-serif;line-height:1.75;color:var(--ink);background:var(--bg);word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--brand2)}@media(prefers-color-scheme:dark){a{color:var(--lav)}}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--cube);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{background:var(--brand);color:#fff}.top .wrap{display:flex;align-items:center;gap:14px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.3px}.logo svg{flex:none}
+.top nav{margin-left:auto;display:flex;gap:4px}.top nav a{color:#e6defa;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:8px}.top nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+.hero{background:radial-gradient(120% 140% at 85% 0%,#5b33a8 0%,var(--brand) 55%,#1a0d38 100%);color:#fff;padding:52px 0 60px}
+.hero h1{font-size:40px;line-height:1.2;margin:0 0 12px;letter-spacing:-1px}.hero p{margin:0;color:#ddd3f7;font-size:17px;max-width:640px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.stats span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:6px 12px;border-radius:999px;font-size:13px;color:#efe9ff}.stats b{color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:-26px 0 22px;position:relative}
+.search{flex:1 1 280px;display:flex;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(43,22,87,.12)}
+.search input{flex:1;border:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;padding:14px 16px;min-width:0}.search input:focus{outline:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.chips button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--sub);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+a.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(43,22,87,.12)}
+.card h2{font-size:18px;line-height:1.45;margin:0;color:var(--ink)}.card p{margin:0;color:var(--sub);font-size:14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--brand2);background:#efe9fb;padding:3px 9px;border-radius:6px;align-self:flex-start}@media(prefers-color-scheme:dark){.tag{background:#2c2350;color:var(--lav)}}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}.duo div{border-radius:10px;padding:8px 10px;font-size:12px;min-width:0}.duo b{display:block;font-size:17px;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.duo .bad{background:var(--bad-bg);color:var(--bad)}.duo .good{background:var(--good-bg);color:var(--good)}
+.empty{display:none;color:var(--sub);text-align:center;padding:30px}
+main.post{max-width:780px;margin:0 auto;padding:28px 20px}
+.crumb{font-size:13px;color:var(--sub);margin-bottom:14px}.crumb a{color:var(--sub)}
+.post h1{font-size:32px;line-height:1.3;margin:10px 0 14px;letter-spacing:-.6px}.lead{font-size:18px;color:var(--sub);margin:0 0 24px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 22px}.result div{border-radius:14px;padding:18px}
+.result small{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.result .big{display:block;font-size:26px;line-height:1.3;font-variant-numeric:tabular-nums;word-break:break-all}.result .raw{display:block;margin-top:8px;font-size:12px;opacity:.8}.result code{font-family:ui-monospace,Menlo,monospace}.result div{min-width:0}
+.result .bad{background:var(--bad-bg);color:var(--bad);border:1px solid rgba(194,86,58,.25)}.result .good{background:var(--good-bg);color:var(--good);border:1px solid rgba(47,122,85,.25)}
+.callout{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--cube);border-radius:12px;padding:16px 18px;margin:0 0 26px;font-size:17px}
+.post h2{font-size:21px;margin:34px 0 10px;letter-spacing:-.3px}
+pre{background:var(--code);color:#ece7ff;padding:16px;border-radius:12px;overflow-x:auto;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-all;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.scope{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--sub);font-size:14px}
+.links{list-style:none;padding:0;margin:0;display:grid;gap:10px}.links a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-decoration:none;font-weight:600}
+.note{color:var(--sub);font-size:14px}
+.ad{margin:26px auto;text-align:center;min-height:1px}.ad small{display:block;color:var(--sub);font-size:11px;margin-bottom:4px;letter-spacing:.5px}
+article.page{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;margin:28px auto;max-width:780px}
+footer.site{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 40px;color:var(--sub);font-size:13px}footer.site a{color:var(--sub)}
+@media(max-width:700px){.hero{padding:36px 0 50px}.hero h1{font-size:30px}.post h1{font-size:25px}.result{grid-template-columns:1fr}.top nav a{padding:8px}}
+@media(prefers-reduced-motion:reduce){a.card{transition:none}a.card:hover{transform:none}}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="logo" href="https://drangonchicken-source.github.io/"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="13" cy="13" r="10" fill="#7d5cd6" stroke="#cdbcf7" stroke-width="2"/><path d="M9 11l4-2 4 2v5l-4 2-4-2z" fill="#f08a4b"/><path d="M9 11l4 2 4-2M13 13v5" stroke="#c96a33" stroke-width="1" fill="none"/><path d="M20.5 20.5l7 7" stroke="#e9d9c8" stroke-width="4" stroke-linecap="round"/></svg><span>작은 실험실 자료실</span></a>
+<nav aria-label="사이트"><a href="https://drangonchicken-source.github.io/">실험 기록</a><a href="https://drangonchicken-source.github.io/about/">소개</a><a href="https://blog.naver.com/algonode" rel="noopener">블로그</a></nav></div></header>
+<main class="post"><nav class="crumb" aria-label="위치"><a href="../../">자료실</a> › 무료 업무 도구</nav>
+<span class="tag">무료 업무 도구</span><h1>참과 거짓이 숫자 검사에 통과하는 경우</h1>
+<section class="result" aria-label="실행 결과 비교"><div class="bad"><small>확인 없이 처리한 결과</small><strong class="big">참</strong><span class="raw">실행 기록 값: <code>true</code></span></div><div class="good"><small>확인하고 처리한 결과</small><strong class="big">거짓</strong><span class="raw">실행 기록 값: <code>false</code></span></div></section>
+<div class="callout"><strong>결론</strong><br>Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다.</div>
 <div class="ad "><small>광고</small><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-wlz2PPROb7xRkgr7" data-ad-width="300" data-ad-height="250"></ins></div>
-<h2>결론</h2><p>Python에서 bool은 int 하위형이다. 필요한 경우 정확한 자료형 조건을 정한다.</p>
+<h2>입력 자료</h2><pre>true</pre>
 <h2>실행 방법</h2><p>Python 표준 라이브러리로 두 처리 방법을 직접 실행하고 예상값 assertion 대조</p>
-<h2>이 실험의 한계</h2><p>가상 자료의 해당 Python 처리만 검산. 특정 앱의 동작·실제 AI 출력·사용자 오류율을 측정하지 않음.</p><h2>더 읽을 자료</h2><ul><li><a href="https://support.microsoft.com/ko-kr/excel/convert-numbers-stored-as-text-to-numbers-in-excel" rel="noopener">Microsoft 지원: Excel에서 텍스트로 저장된 숫자를 숫자로 변환</a></li></ul><h2>비슷한 실험</h2><ul><li><a href="../ambiguous-date/">03/04는 3월 4일인가 4월 3일인가</a></li><li><a href="../asymmetric-compare/">한쪽 표만 순회하면 추가된 행을 놓친다</a></li><li><a href="../composite-dedupe-key/">주문번호만으로 중복을 지우면 상품이 사라진다</a></li><li><a href="../csv-quoted-comma/">CSV의 쉼표를 직접 나누면 열이 늘어나는 이유</a></li></ul></article><div class="ad "><small>광고</small><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-O2gu8S2UiwTLR9wb" data-ad-width="250" data-ad-height="250"></ins></div></main>
-<footer><p>작은 실험실 자료실 · 모든 실험은 직접 만든 가상 자료로 실행했습니다. 실제 고객 자료, 특정 앱의 동작, AI 오류율을 측정한 것이 아닙니다.</p>
-<p><a href="https://drangonchicken-source.github.io/about/">소개와 광고 안내</a></p></footer><script type="text/javascript" src="https://t1.kakaocdn.net/kas/static/ba.min.js" async></script></body></html>
+<h2>이 실험의 범위</h2><p class="scope">가상 자료의 해당 Python 처리만 검산. 특정 앱의 동작·실제 AI 출력·사용자 오류율을 측정하지 않음.</p>
+<p class="note">직접 실행한 가상 자료 실험 기록 · 식별자 boolean-number</p><h2>더 읽을 자료</h2><ul class="links"><li><a href="https://support.microsoft.com/ko-kr/excel/convert-numbers-stored-as-text-to-numbers-in-excel" rel="noopener">Microsoft 지원: Excel에서 텍스트로 저장된 숫자를 숫자로 변환 ↗</a></li></ul><h2>비슷한 실험</h2><div class="grid"><a class="card" href="../ambiguous-date/"><span class="tag">문서·데이터 정리</span><h2>03/04는 3월 4일인가 4월 3일인가</h2></a><a class="card" href="../asymmetric-compare/"><span class="tag">실험 기록</span><h2>한쪽 표만 순회하면 추가된 행을 놓친다</h2></a><a class="card" href="../composite-dedupe-key/"><span class="tag">문서·데이터 정리</span><h2>주문번호만으로 중복을 지우면 상품이 사라진다</h2></a><a class="card" href="../csv-quoted-comma/"><span class="tag">문서·데이터 정리</span><h2>CSV의 쉼표를 직접 나누면 열이 늘어나는 이유</h2></a></div><div class="ad "><small>광고</small><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-O2gu8S2UiwTLR9wb" data-ad-width="250" data-ad-height="250"></ins></div></main>
+<footer class="site"><div class="wrap"><p>작은 실험실 자료실 · 모든 실험은 직접 만든 가상 자료로 실행했습니다. 실제 고객 자료, 특정 앱의 동작, AI 오류율을 측정한 것이 아닙니다.</p>
+<p><a href="https://drangonchicken-source.github.io/about/">소개와 광고 안내</a></p></div></footer><script type="text/javascript" src="https://t1.kakaocdn.net/kas/static/ba.min.js" async></script></body></html>
